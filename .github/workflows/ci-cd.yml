@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linting
+      - name: Run linter
         run: npm run lint
 
       - name: Run tests
@@ -45,7 +45,7 @@ jobs:
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: ci
     steps:
       - name: Download Build Artifact

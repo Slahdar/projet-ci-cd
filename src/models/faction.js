@@ -22,7 +22,7 @@ const Faction = sequelize.define("faction", {
         allowNull: true,
         references: {
             model: Effect,
-            key: 'id'
+            key: "id"
         }
     }
 });

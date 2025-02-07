@@ -22,7 +22,7 @@ const Region = sequelize.define("region", {
         allowNull: true,
         references: {
             model: Effect, 
-            key: 'id'
+            key: "id"
         }
     }
 });

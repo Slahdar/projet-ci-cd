@@ -1,7 +1,7 @@
 import User from "../models/users.js";
 import { Op } from "sequelize";
-import nodemailer from 'nodemailer';
-import { v4 as uuidv4 } from 'uuid';
+import nodemailer from "nodemailer";
+import { v4 as uuidv4 } from "uuid";
 
 async function generateID(id) {
 	const { count } = await findAndCountAllUsersById(id);
@@ -91,20 +91,20 @@ export async function registerUser(userDatas, bcrypt) {
 	await User.update({ verificationToken }, { where: { id: newUser.id } });
 
 	const transporter = nodemailer.createTransport({
-		host: 'smtp.mail.yahoo.com',
+		host: "smtp.mail.yahoo.com",
 		port: 587,
 		secure: false, 
 		auth: {
-		  user: 'mchostak@yahoo.fr', 
-		  pass: 'ypdgcpioamhpvakc',
+		  user: "mchostak@yahoo.fr", 
+		  pass: "ypdgcpioamhpvakc",
 		},
 	  });
 	  
 	  // Exemple d'envoi d'email
 	  const mailOptions = {
-		from: 'mchostak@yahoo.fr',
+		from: "mchostak@yahoo.fr",
 		to: email,
-		subject: 'Test Email avec Yahoo', 
+		subject: "Test Email avec Yahoo", 
 		text: `Cliquez sur le lien suivant pour confirmer votre adresse email : ${confirmationUrl}`,
 	  };
 
